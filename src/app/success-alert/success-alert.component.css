@@ -1,4 +1,10 @@
-p{
-    border-radius: 0px 1px;
-    background-color: green;
-}
+p {
+    padding: 20px;
+    background-color: palegreen;
+    border: 1px solid green;
+    transition: all 1s;
+  }
+  
+  p:hover {
+    transform: scale(1.1);
+  }
