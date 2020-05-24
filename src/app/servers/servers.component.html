@@ -1,11 +1,12 @@
  <!-- The square bracket indicates that it is a property binding -->
- <!-- The parentheses indicates that it is a property binding -->
+
+ <!-- One-way binding -->
  <input (input) = "onUpdateServerName($event)">
- <button 
- [disabled] = "!allowNewServer"
- (click)= "onCreateServerclick()">Add Server
- 
- </button>
+
+  <!-- Two-way binding -->
+ <input [(ngModel)] = "serverName">
+
+ <button  [disabled] = "!allowNewServer" >Add Server </button>
  <p> {{serverName}} </p> 
 
  <p> {{serverCreationStatus}} </p> 
