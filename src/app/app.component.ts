@@ -7,6 +7,14 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Assignment 2: Practicing Databinding ';
-  name = 'Solution output';
+  title = 'Directives';
+  name = 'ngIf Implementation';
+
+  serverName = '';
+  btnClickable = false;
+ 
+   onUpdateServerName(event: Event){
+   this.serverName = (<HTMLInputElement>event.target).value;
+   }
+   
 }

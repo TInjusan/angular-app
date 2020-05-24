@@ -1,13 +1,12 @@
- <!-- The square bracket indicates that it is a property binding -->
-
- <!-- One-way binding -->
- <input (input) = "onUpdateServerName($event)">
-
   <!-- Two-way binding -->
- <input [(ngModel)] = "serverName">
+ <input [(ngModel)] = "serverName"><br>
 
- <button  [disabled] = "!allowNewServer" >Add Server </button>
- <p> {{serverName}} </p> 
-
- <p> {{serverCreationStatus}} </p> 
- <app-server></app-server>
+ <button  [disabled] = "!allowNewServer" 
+          (click) = " onCreateServerclick()">Add Server </button>
+ <p *ngIf = "serverCreated; else: noServer">New server name: {{serverName}} was created</p>  
+ <ng-template #noServer> 
+     <p>
+        No server was created.
+     </p>
+            
+ </ng-template>

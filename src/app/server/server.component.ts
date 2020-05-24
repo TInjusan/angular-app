@@ -10,17 +10,7 @@ export class ServerComponent  {
  serverName = '';
  btnClickable = false;
 
- onUpdateServerName(event: Event){
+  onUpdateServerName(event: Event){
   this.serverName = (<HTMLInputElement>event.target).value;
-  console.log(event);
-
-    if( !(this.serverName == '')){
-      this.btnClickable = false;
-    }
-    else{
-      this.btnClickable = true;
-    }
+  }
  }
-
-
-}
