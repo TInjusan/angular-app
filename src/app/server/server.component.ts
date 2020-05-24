@@ -6,8 +6,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./server.component.css']
 })
 export class ServerComponent  {
- serverID: Number = 12;
- serverStatus: String = "Offline";
+ 
+ serverName = '';
+ btnClickable = false;
+
+ onUpdateServerName(event: Event){
+  this.serverName = (<HTMLInputElement>event.target).value;
+  console.log(event);
+
+    if( !(this.serverName == '')){
+      this.btnClickable = false;
+    }
+    else{
+      this.btnClickable = true;
+    }
+ }
 
 
 }

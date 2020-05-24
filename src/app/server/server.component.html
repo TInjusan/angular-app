@@ -1,2 +1,7 @@
+<input [(ngModel)] = "serverName">
+<p> {{serverName}} </p> 
+<button  [disabled] = " serverName === ''"
+         (click) = "serverName = ''" >
+         Reset Button 
+</button>
 
-<p>Server with ID {{serverID}} is {{ serverStatus }} </p>

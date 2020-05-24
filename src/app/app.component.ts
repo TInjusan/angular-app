@@ -7,6 +7,6 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Unang Application';
-  name = 'I am Justin Andrade';
+  title = 'Assignment 2: Practicing Databinding ';
+  name = 'Solution output';
 }
