@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class AppComponent {
   title = 'Directives';
-  name = 'ngStyle Implementation';
+  name = 'ngFor Implementation';
 
   serverName = '';
   btnClickable = false;
