@@ -1,7 +1,7 @@
   <!-- Two-way binding -->
  <input [(ngModel)] = "serverName"><br>
 
- <button  [disabled] = "!allowNewServer" 
+ <button class="btn btn-primary" [disabled] = "!allowNewServer" 
           (click) = " onCreateServerclick()">Add Server </button>
  <p *ngIf = "serverCreated; else: noServer">New server name: {{serverName}} was created</p>  
  <ng-template #noServer> 

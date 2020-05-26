@@ -7,10 +7,18 @@ import { Component } from '@angular/core';
 })
 export class ServerComponent  {
  
- serverName = '';
- btnClickable = false;
-
-  onUpdateServerName(event: Event){
-  this.serverName = (<HTMLInputElement>event.target).value;
+ serverStatus: String = 'offline';
+ 
+  constructor(){
+    this.serverStatus = Math.random() > 0.5 ? 'offline': 'online';
   }
+   
+  getColor(){
+    return this.serverStatus === 'offline'? 'red':'green';
+  }
+
+  gettextColor(){
+    return 'white';
+  }
+
  }

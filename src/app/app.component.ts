@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class AppComponent {
   title = 'Directives';
-  name = 'ngIf Implementation';
+  name = 'ngStyle Implementation';
 
   serverName = '';
   btnClickable = false;
@@ -16,5 +16,5 @@ export class AppComponent {
    onUpdateServerName(event: Event){
    this.serverName = (<HTMLInputElement>event.target).value;
    }
-   
+
 }
