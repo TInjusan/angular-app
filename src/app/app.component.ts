@@ -8,13 +8,14 @@ import { FormsModule } from '@angular/forms';
 })
 export class AppComponent {
   title = 'Directives';
-  name = 'ngFor Implementation';
+  description = 'ngFor Implementation';
 
-  serverName = '';
-  btnClickable = false;
- 
-   onUpdateServerName(event: Event){
-   this.serverName = (<HTMLInputElement>event.target).value;
-   }
+  showSecret = false;
+  log = [];
+
+  onToggleDetails() {
+    this.showSecret = !this.showSecret;
+    this.log.push(this.log.length + 1);
+  }
 
 }
