@@ -1,33 +1,11 @@
+<app-header (featureSelected) = "onNavigate($event)"></app-header>
 
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
     </div>
-    <h1>{{title }}</h1>
-    <p>{{ description }}</p>
-     
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <ol>
-            <li>Add A button which says 'Display Details'</li>
-            <li>Add a paragraph with any content of your choice (e.g. 'Secret Password = tuna')</li>
-            <li>Toggle the displaying of that paragraph with the button created in the first step</li>
-            <li>Log all button clicks in an array and output that array below the secret paragraph (maybe log a timestamp or simply an incrementing number)</li>
-            <li>Starting at the 5th log item, give all future log items a blue background (via ngStyle) and white color (ngClass)</li>
-          </ol>
-          <hr>
-          <!--<button class="btn btn-primary" (click)="showSecret = !showSecret">Display Details</button>-->
-          <button class="btn btn-primary" (click)="onToggleDetails()">Display Details</button>
-          <p *ngIf="showSecret">This is the secret text. Ssssshhh..</p>
-          <div
-            *ngFor="let logItem of log"
-            [ngStyle]="{backgroundColor: logItem >= 5 ? 'blue' : 'transparent'}"
-            [ngClass]="{'white-text': logItem >= 5}"
-          >{{ logItem }}</div>
-        </div>
-      </div>
-    </div>
-    <ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>
-  </div>
+     <app-recipes *ngIf = "loadedFeature  === 'recipe'"></app-recipes>
+     <app-shopping-list  *ngIf = "loadedFeature  === 'shopping-list'"></app-shopping-list>
+
+   </div>
 </div>
