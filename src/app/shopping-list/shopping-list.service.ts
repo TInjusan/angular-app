@@ -13,17 +13,33 @@ export class ShoppingListService{
     }
     
     addIngredient(ingredient: Ingredient){
-        this.ingredients.push(ingredient);
-        this.ingredientsUpdate.emit(this.ingredients.slice());
+        if(this.checkIngredient(ingredient.name, ingredient.amount) < 1 ){
+            this.ingredients.push(ingredient);
+            this.ingredientsUpdate.emit(this.ingredients.slice());
+        }
+    
     }
     
     addIngredients(ingredients: Ingredient[]){
-        // for(let ingredient of ingredients){
-        //     this.addIngredient(ingredient);
-        // }
+        for(let ingredient of ingredients){
+            this.addIngredient(ingredient);
+        }
 
         //using spread operator
-        this.ingredients.push(...ingredients);
+        //this.ingredients.push(...ingredients);
         this.ingredientsUpdate.emit(ingredients.slice());
+    }
+
+    checkIngredient(ingredientName: string, ingredientAmount: number): any{
+        let count = 0;
+        for(let ingredient of this.ingredients){
+            if(ingredient.name === ingredientName){
+                ingredient.amount = ingredient.amount + ingredientAmount;
+                count++;
+            }
+        }
+        
+        return count;
+
     }
 }
