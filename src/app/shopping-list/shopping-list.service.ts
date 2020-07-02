@@ -1,8 +1,9 @@
 import { Ingredient } from '../shared/ingredient.model';
 import { EventEmitter } from '@angular/core';
+import { Subject } from 'rxjs';
 
 export class ShoppingListService{
-    ingredientsUpdate = new EventEmitter<Ingredient[]>();
+    ingredientsUpdate = new Subject<Ingredient[]>();
     private ingredients: Ingredient[] = [
         new Ingredient('Apples', 5),
         new Ingredient('Tomatoes', 10),
@@ -15,7 +16,7 @@ export class ShoppingListService{
     addIngredient(ingredient: Ingredient){
         if(this.checkIngredient(ingredient.name, ingredient.amount) < 1 ){
             this.ingredients.push(ingredient);
-            this.ingredientsUpdate.emit(this.ingredients.slice());
+            this.ingredientsUpdate.next(this.ingredients.slice());
         }
     
     }
@@ -27,7 +28,7 @@ export class ShoppingListService{
 
         //using spread operator
         //this.ingredients.push(...ingredients);
-        this.ingredientsUpdate.emit(ingredients.slice());
+        this.ingredientsUpdate.next(ingredients.slice());
     }
 
     checkIngredient(ingredientName: string, ingredientAmount: number): any{
