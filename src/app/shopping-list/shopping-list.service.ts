@@ -34,6 +34,16 @@ export class ShoppingListService{
         //this.ingredients.push(...ingredients);
         this.ingredientsUpdate.next(ingredients.slice());
     }
+    
+    updateIngredient(index: number, newIngredient: Ingredient){
+        this.ingredients[index] = newIngredient;
+        this.ingredientsUpdate.next(this.ingredients.slice());
+    }
+
+    deleteIngredient(index: number){
+        this.ingredients.splice(index, 1);
+        this.ingredientsUpdate.next(this.ingredients.slice());
+    }
 
     checkIngredient(ingredientName: string, ingredientAmount: number): any{
         let count = 0;
