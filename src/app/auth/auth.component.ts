@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from './auth.service';
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-auth',
@@ -40,9 +42,9 @@ export class AuthComponent {
                         console.log(responseData);
                         this.isLoading = false;
         },
-        error =>{
-                         console.log(error);
-                         this.error = 'An error has occured';
+        errorMessage =>{
+                         console.log(errorMessage);
+                         this.error = errorMessage;
                          this.isLoading = false;
         }
       );      
