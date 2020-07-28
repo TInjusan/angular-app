@@ -1,14 +1,43 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html'
 })
 export class AuthComponent {
+  isLoginMode = true;
 
-    isLoginMode = true;
+  constructor (private authService: AuthService){}
 
-    onSwitchMode(){
-        this.isLoginMode = !this.isLoginMode;
+  onSwitchMode() {
+    this.isLoginMode = !this.isLoginMode;
+  }
+
+  onSubmit(form: NgForm) {
+
+    if(!form.valid){
+      return;
     }
+
+    if(this.isLoginMode){
+      // Do something later for logged in user  
+    }
+    else{
+      console.log(form.value);
+      const email = form.value.email;
+      const password = form.value.password;
+  
+      this.authService.signUp(email, password).subscribe(
+        responseData =>{
+                        console.log(responseData);
+        },
+        error =>{
+                         console.log(error);
+        }
+      );      
+    }
+    form.reset();
+  }
 }
